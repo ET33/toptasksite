@@ -17,13 +17,17 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: toptask
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
+  password: toptask
   pool: 5
+  port: 5433
 
 development:
   <<: *default
   database: toptask_development
+
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -62,7 +66,7 @@ test:
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
-#
+# 
 # Instead, provide the password as a unix environment variable when you boot
 # the app. Read http://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full rundown on how to provide these environment variables in a
@@ -81,5 +85,4 @@ test:
 production:
   <<: *default
   database: toptask_production
-  username: toptask
-  password: <%= ENV['TOPTASK_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

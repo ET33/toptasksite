@@ -1,0 +1,26 @@
+<div class="msgErros">
+	<h2 class="success"> <%=  notice %></h2>
+</div>
+
+<div class="informacoes">
+	<h2>Perfil do Usuário</h2>
+	<hr/>
+	<p>
+		<label> Nome: <%= @user.nome %></label>
+	</p>
+	<p>
+		<label> Email: <%= @user.email %></label>
+	</p>
+	<p>
+		<label> Perfil do usuário:
+			<% if @user.permissao == 0 %> 
+				Administrador
+			<% elsif @user.permissao == 0 %> 
+				Desenvolvedor
+			<% else %>
+				Cliente
+			<% end %>
+		</label>
+	</p>
+	<%= link_to 'Editar Perfil' , edit_user_path(@user) %>
+</div>

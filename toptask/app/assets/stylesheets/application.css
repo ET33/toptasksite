@@ -15,3 +15,7 @@
  *= require foundation_and_overrides
 
  */
+
+.success{
+	color: #9ACD32;
+}
