@@ -6,16 +6,16 @@
 	<h2>Perfil do Usuário</h2>
 	<hr/>
 	<p>
-		<label> Nome: <%= @user.nome %></label>
+		<label> Nome: <%= @user.name %></label>
 	</p>
 	<p>
 		<label> Email: <%= @user.email %></label>
 	</p>
 	<p>
 		<label> Perfil do usuário:
-			<% if @user.permissao == 0 %> 
+			<% if @user.permission == 0 %> 
 				Administrador
-			<% elsif @user.permissao == 0 %> 
+			<% elsif @user.permission == 0 %> 
 				Desenvolvedor
 			<% else %>
 				Cliente
@@ -23,4 +23,5 @@
 		</label>
 	</p>
 	<%= link_to 'Editar Perfil' , edit_user_path(@user) %>
+    <%= link_to "Voltar", root_path %>
 </div>

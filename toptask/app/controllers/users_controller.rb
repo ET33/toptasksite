@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 		@user = User.new 
 	end
 
-
 	def create
 		@user = User.new(user_params)
 		if @user.save
@@ -26,13 +25,9 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		@dados = user_params;
-		if @dados[:senha] == "" or @dados[:senha] == nil or @user.senha == @dados[:senha]
-			@dados[:senha] = @user[:senha]
-			@dados[:senha_confirmation] = @user[:senha]
-			puts "Senha : " + @user[:senha];
-		end
-		if @user.update(@dados)
+        puts "SENHA ATUAL: " + @user[:password] if not @user[:password] == nil 
+        puts "SENHA NOVA: " + user_params[:password]
+        if @user.update(user_params)
 			redirect_to @user, notice: 'Usuário alterado  com sucesso!'
 		else
 			render action: :edit
@@ -42,7 +37,7 @@ class UsersController < ApplicationController
  private
 
   def user_params
-    params.require(:user).permit(:nome, :email, :senha, :senha_confirmation, :permissao)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :permission)
   end
 
 end

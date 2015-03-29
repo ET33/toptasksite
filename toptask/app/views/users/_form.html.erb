@@ -9,33 +9,33 @@
 	</div>
 <% end %>
 
-<%= form_for @user do |f| %>
-	<p>
-		<%= f.label :nome %> <br/>
-		<%= f.text_field :nome %>
-	</p>
+<%= form_for(@user,html: {class: 'form-horizontal'}) do |f| %>
+	<div class="field form-group">
+		<%= f.label :name %> <br/>
+		<%= f.text_field :name %>
+	</div>
 	<p>
 		<%= f.label :email %><br/>
 		<%= f.email_field :email %>
 	</p>
 	<p>
-		<%= f.label :senha %><br/>
-		<%= f.password_field :senha %>
+		<%= f.label :password %><br/>
+		<%= f.password_field :password %>
 	</p>
 	<p>
-		Confirmacao de Senha <br/>
-		<%= f.password_field :senha_confirmation %>
+		<%= f.label :password_confirmation %> <br/>
+		<%= f.password_field :password_confirmation %>
 	</p>
 	<p>
-		<%= f.radio_button(:permissao, 0) %>
-		<%= f.label(:permissao, "Administrador") %>
-		<%= f.radio_button(:permissao, 1) %>
-		<%= f.label(:permissao, "Desenvolvedor") %>
-		<%= f.radio_button(:permissao, 2) %>
-		<%= f.label(:permissao, "Cliente") %>
+		<%= f.radio_button(:permission, 0) %>
+		<%= f.label(:permission, "Administrador") %>
+		<%= f.radio_button(:permission, 1) %>
+		<%= f.label(:permission, "Desenvolvedor") %>
+		<%= f.radio_button(:permission, 2) %>
+		<%= f.label(:permission, "Cliente") %>
 	</p>
 	<p>
-		<%= f.submit "Salvar"%>
+        <%= f.submit %>
+        <%= link_to "Voltar", root_path, class: "btn btn-default" %>
 	</p>
-	
 <% end %>
